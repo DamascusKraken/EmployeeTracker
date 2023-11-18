@@ -231,7 +231,7 @@ function addRole(){
            } else{
                count++;
            }
-           console.log(count);
+          
            
        }
         db.query(`INSERT INTO role (role.role_title, role.salary, role.department_id) VALUES ('${roleDts.roleName}', '${roleDts.roleSalary}', '${count}')`)
@@ -251,14 +251,24 @@ function viewAllRoles(){
                     function (err, data)
     {
         db.query({sql:'SELECT * FROM role', rowsAsArray: true}, function (err, roleTable ){
+            
+            let idContainer = [];
+            let salaryContainer = [];
+
+            for (let k = 0; k < roleTable.length; k++){
+                let construct = roleTable[k];
+                idContainer[k] = construct[0];
+                salaryContainer[k] = construct[2];
+            }
+            
             for( let x = 0; x < data.length; x++)
             {
             let deconstruct = data[x]
             let title = deconstruct[0];
             let deptName = deconstruct[1];
-            let construct = roleTable[x];
-            let roleID = construct[0];
-            let salary = construct[2];
+            
+            let roleID = idContainer[x];
+            let salary = salaryContainer[x];
             
             console.log( `${roleID}   ` + "\t" + ` ${title}   ` + " \t  " +  `${deptName}` + "\t" + ` ${salary}`);
             
