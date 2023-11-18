@@ -1,33 +1,33 @@
-INSERT INTO department(department_name)
-VALUES("Asset Management"),
-      ("Creative Services"),
+INSERT INTO departments(department_name)
+VALUES("Finance"),
+      ("Creative"),
       ("Engineering"),
-      ("Legal"),
-      ("Customer Service"),;
+      ("Legal Sector"),
+      ("Customer");
 
-INSERT INTO role(role_title, salary)
-VALUES("Investment Broker", 116728.00),
-      ("Financial Advisor", 94170.00),
-      ("Graphic Designer", 50265.00),
-      ("Web Designer", 55078.00),
-      ("Software Engineer", 105590.00),
-      ("Computer Engineer", 114600.00),
-      ("Legal Assistant", 55199.00),
-      ("Complaince Manager", 145762.00),
-      ("Customer Service Representative", 42733.00),
-      ("Customer Service Manager", 98654.00);
+INSERT INTO role(role_title, salary, department_id)
+VALUES("Investment Broker", 116728, 001),
+      ("Financial Advisor", 94170.00, 001),
+      ("Graphic Designer", 50265.00, 002),
+      ("Web Designer", 55078.00, 002),
+      ("Software Engineer", 105590.00, 003),
+      ("Computer Engineer", 114600.00, 003),
+      ("Legal Assistant", 55199.00, 004),
+      ("Complaince Manager", 145762.00, 004),
+      ("Customer  Rep", 42733.00, 005),
+      ("Customer  MGR", 98654.00, 005);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-VALUES("Hareltila", "Frye", 10, NULL),
-      ("Tineth", "Vash", 7, 13),
-      ("Xylsea", "Dalaney", 2, NULL),
-      ("Charix", "Thorsten", 4),
-      ("Viokar", "Bryon", 9, 1),
-      ("Krovras", "Bates", 6, NULL),
-      ("Streghor", "Wise", 1, NULL),
-      ("Graexir", "Gulliver", 3, NULL),
-      ("Muror", "Peck", 9, 1),
-      ("Zebrum", "Tremain", 2, 3),
-      ("Līmos", "Rue", 1, 7),
-      ("Derabo", "Malik", 5, NULL),
-      ("Ethais", "Thayer", 8, NULL);
+VALUES("Hareltila", "Frye", 010, NULL),
+      ("Tineth", "Vash", 007, 013),
+      ("Xylsea", "Dalaney", 002, NULL),
+      ("Charix", "Thorsten", 004,NULL),
+      ("Viokar", "Bryon", 009, 001),
+      ("Krovras", "Bates",006, NULL),
+      ("Streghor", "Wise", 001, NULL),
+      ("Graexir", "Gulliver", 003, NULL),
+      ("Muror", "Peck", 009, 001),
+      ("Zebrum", "Tremain", 002, 003),
+      ("Līmos", "Rue", 001, 007),
+      ("Derabo", "Malik", 005, NULL),
+      ("Ethais", "Thayer", 008, NULL);

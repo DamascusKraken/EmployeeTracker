@@ -3,30 +3,35 @@ CREATE DATABASE company_db;
 
 USE company_db;
 
-CREATE TABLE  department (
-    id INT AUTO_INCREMENT,
-    department_name VARCHAR(30),
-    PRIMARY KEY (id)
+-- DROP TABLE IF EXISTS departments;
+CREATE TABLE  departments (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(30)
 );
 
+-- DROP TABLE IF EXISTS role;
 CREATE TABLE role ( 
-    id INT AUTO_INCREMENT,
-    role_title VARCHAR(30),
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    role_title VARCHAR(50),
     salary DECIMAL,
-    department_id INT NOT NULL,
-    PRIMARY KEY (id)
-    FOREIGN KEY (department_id)
-    REFERENCES department(id)
+    department_id INT,
+     FOREIGN KEY (department_id)
+    REFERENCES departments(ID)
 );
 
+-- DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
-    id INT AUTO_INCREMENT,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     role_id INT NOT NULL,
-    manager_id INT,
-    PRIMARY KEY (id)
+    manager_id INT REFERENCES ID,
     FOREIGN KEY (role_id)
-    REFERENCES role(id)
-    FOREIGN KEY (manager_id)
-)
+    REFERENCES role(ID)
+
+
+);
+
+CREATE view displayDept AS SELECT *
+FROM departments;
+
